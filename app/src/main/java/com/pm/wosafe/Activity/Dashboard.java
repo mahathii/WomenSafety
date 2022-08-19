@@ -223,6 +223,7 @@ public class Dashboard extends AppCompatActivity {
             SharedPreferences prfs = getSharedPreferences(EmergencyContactNumber.MyPREFERENCES, Context.MODE_PRIVATE);
             String number = prfs.getString(EmergencyContactNumber.NumberContacts, "");
 
+
             i++;
             if(i==1){
                 //do something
@@ -306,7 +307,7 @@ public class Dashboard extends AppCompatActivity {
 //
 //    }
 public void sendSMS(String phoneNo, double lat, double lon) {
-    String AlertMessage = "I am in danger\n" + "https://www.google.com/maps/?q=" + lat + "," + lon;
+    String AlertMessage = "I am in danger\n" + "https://www.google.com/maps/search/?api=1&query=" + lat + "%2C" + lon;
     try {
         SmsManager smsManager = SmsManager.getDefault();
         smsManager.sendTextMessage(phoneNo, null, AlertMessage, null, null);
